@@ -1,6 +1,7 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
-import { ControllerUsers } from "./controller/usuarios";
+import { ControllerUsers } from "../controller/usuarios";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
 const app = Fastify({ logger: true });
 
@@ -33,3 +34,8 @@ const start = async () => {
 };
 
 start();
+
+export default async (req: VercelRequest, res: VercelResponse) => {
+    await app.ready();
+    app.server.emit("request", req, res);
+};
