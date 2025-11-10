@@ -2,13 +2,12 @@
   "name": "nextstageapi",
   "version": "1.0.0",
   "description": "API Fastify + Prisma para Vercel",
-  "main": "dist/server.js",
+  "main": "index.js",
   "license": "ISC",
+  "type": "commonjs",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "generate": "prisma generate"
+    "dev": "ts-node src/server.ts",
+    "vercel-dev": "vercel dev"
   },
   "dependencies": {
     "@fastify/cors": "^11.1.0",
