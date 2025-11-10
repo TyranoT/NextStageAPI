@@ -16,7 +16,8 @@
   },
   "scripts": {
     "dev": "ts-node src/server.ts",
-    "vercel-dev": "vercel dev"
+    "vercel-dev": "vercel dev",
+    "postinstall": "prisma generate"
   },
   "name": "nextstageapi",
   "version": "1.0.0",
