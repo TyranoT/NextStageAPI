@@ -16,7 +16,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/server.ts",
-    "vercel-dev": "vercel dev"
+    "vercel-dev": "vercel dev",
+    "vercel-build": "chmod +x ./node_modules/.bin/prisma && npx prisma generate && next build"
   },
   "dependencies": {
     "@fastify/cors": "^11.1.0",
