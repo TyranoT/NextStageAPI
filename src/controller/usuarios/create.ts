@@ -45,12 +45,8 @@ export const LoginUsuario = async (req: FastifyRequest<{Body: ILoginUsuarioSchem
         const decode = jwt.decode(user.hashSenha);
 
         if(decode == req.body.senha){
-
-            const token = jwt.sign(user, process.env.SECRET_KEY!, {
-                expiresIn: "1h",
-            });
             
-            return res.status(201).send({ msg: "Usuário Logado", data: token })
+            return res.status(201).send({ msg: "Usuário Logado", data: user })
         } else {
             return res.status(400).send({ errors: { default: "Senha incorreta" } });
         }
