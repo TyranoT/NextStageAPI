@@ -22,7 +22,20 @@ app.get("/", async (request, reply) => {
 app.post("/cadastrar", ControllerUsers.CriarUsuario);
 app.post("/entrar", ControllerUsers.LoginUsuario);
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+// Start
+const start = async () => {
+    try {
+        await app.listen({ port: 3000, host: "localhost" });
+        console.log("Server running on http://localhost:3000");
+    } catch (err) {
+        app.log.error(err);
+        process.exit(1);
+    }
+};
+
+start();
+
+export default async (req: VercelRequest, res: VercelResponse) => {
   await app.ready();
   app.server.emit("request", req, res);
-}
+};
