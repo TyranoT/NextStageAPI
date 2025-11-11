@@ -16,8 +16,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "vercel-dev": "vercel dev"
   },
   "dependencies": {
     "@fastify/cors": "^11.1.0",
